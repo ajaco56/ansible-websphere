@@ -2,7 +2,8 @@
   connection: local
   
   tasks:
-    - name: Startliberty_server:
+    - name: Start
+      liberty_server:
         state: started
         libertydir: "{{ libertydir }}"
         servername: "{{ servername }}"
