@@ -1,0 +1,5 @@
+- name: Stop
+  liberty_server:
+    state: stopped
+    libertydir: /usr/local/WebSphere/Liberty/
+    name: my-server-01
