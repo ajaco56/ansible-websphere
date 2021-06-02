@@ -1,6 +1,9 @@
-- name: Start
-  liberty_server:
-    state: started
-    libertydir: /usr/local/WebSphere/Liberty/
-    name: my-server-01
+- hosts: localhost
+  connection: local
+  
+  tasks:
+    - name: Startliberty_server:
+        state: started
+        libertydir: "{{ libertydir }}"
+        servername: "{{ servername }}"
 
