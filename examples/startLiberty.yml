@@ -1,0 +1,6 @@
+- name: Start
+  liberty_server:
+    state: started
+    libertydir: /usr/local/WebSphere/Liberty/
+    name: my-server-01
+
