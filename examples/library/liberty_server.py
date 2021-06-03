@@ -14,9 +14,9 @@ def main():
     # Read arguments
     module = AnsibleModule(
         argument_spec = dict(
-            state   = dict(default='started', choices=['started', 'stopped']),
-            name    = dict(required=True),
-            libertydir  = dict(required=True, type='path')
+            state = dict(default='started', choices=['started', 'stopped']),
+            servername = dict(required=True),
+            libertydir = dict(required=True, type='path')
         )
     )
 
