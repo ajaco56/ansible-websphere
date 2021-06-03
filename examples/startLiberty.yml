@@ -7,9 +7,9 @@
         state: started
         libertydir: "{{ libertydir }}"
         name: "{{ name }}"
-      become: yes
-      become_user: wasusr
-      become_method: sudo 
+      #become: yes
+      #become_user: wasusr
+      #become_method: sudo 
       register: rc
 
     - debug:
