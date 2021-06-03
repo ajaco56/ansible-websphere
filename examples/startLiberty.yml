@@ -6,5 +6,8 @@
       liberty_server:
         state: started
         libertydir: "{{ libertydir }}"
-        servername: "{{ servername }}"
+        name: "{{ name }}"
+      register: rc
 
+    - debug:
+        msg: "{{ rc }}"

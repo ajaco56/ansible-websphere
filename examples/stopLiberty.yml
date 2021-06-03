@@ -6,4 +6,8 @@
       liberty_server:
         state: stopped
         libertydir: "{{ libertydir }}"
-        servername: "{{ servername }}"
+        name: "{{ name }}"
+      register: rc
+
+    - debug:
+        msg: "{{ rc }}"
