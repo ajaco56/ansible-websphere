@@ -25,8 +25,8 @@ def main():
     libertydir = module.params['libertydir']
 
     # Check if paths are valid
-    if not os.path.exists(libertydir):
-        module.fail_json(msg=libertydir+" does not exists")
+    #if not os.path.exists(libertydir):
+    #    module.fail_json(msg=libertydir+" does not exists")
 
     if state == 'stopped':
         child = subprocess.Popen([libertydir+"/bin/server stop " + servername], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
