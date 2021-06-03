@@ -25,15 +25,15 @@ def main():
     libertydir = module.params['libertydir']
 
     # Check if paths are valid
-    if not os.path.exists(libertydir):
-        module.fail_json(msg=libertydir+" does not exists")
+    #if not os.path.exists(libertydir):
+     #   module.fail_json(msg=libertydir+" does not exists")
 
     if state == 'stopped':
         child = subprocess.Popen([libertydir+"/bin/server stop " + name], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout_value, stderr_value = child.communicate()
         if child.returncode != 0:
-           if not stderr_value.find(b"is not running") != -1:
-                module.fail_json(msg=name + " stop failed", stdout=stdout_value, stderr=stderr_value)
+           #if not stderr_value.find(b"is not running") != -1:
+               module.fail_json(msg=name + " stop failed", stdout=stdout_value, stderr=stderr_value)
 
         module.exit_json(changed=True, msg=name + " stopped successfully", stdout=stdout_value)
 
@@ -41,8 +41,8 @@ def main():
         child = subprocess.Popen([libertydir+"/bin/server start " + name], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout_value, stderr_value = child.communicate()
         if child.returncode != 0:
-           if not stderr_value.find(b"is running with process") != -1:
-                module.fail_json(msg=name + " start failed", stdout=stdout_value, stderr=stderr_value)
+           #if not stderr_value.find(b"is running with process") != -1:
+               module.fail_json(msg=name + " start failed", stdout=stdout_value, stderr=stderr_value)
 
         module.exit_json(changed=True, msg=name + " started successfully", stdout=stdout_value)
 
