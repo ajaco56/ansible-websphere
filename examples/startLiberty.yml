@@ -6,7 +6,7 @@
       liberty_server:
         state: started
         libertydir: "{{ libertydir }}"
-        name: "{{ name }}"
+        servername: "{{ servername }}"
       #become: yes
       #become_user: wasusr
       #become_method: sudo 
