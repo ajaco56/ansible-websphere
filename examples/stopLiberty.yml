@@ -7,6 +7,9 @@
         state: stopped
         libertydir: "{{ libertydir }}"
         name: "{{ name }}"
+      become: yes
+      become_user: wasusr
+      become_method: sudo 
       register: rc
 
     - debug:
