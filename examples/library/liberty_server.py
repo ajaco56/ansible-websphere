@@ -8,6 +8,7 @@ import os
 import subprocess
 import platform
 import datetime
+import time
 
 def main():
 
@@ -43,7 +44,9 @@ def main():
         if child.returncode != 0:
            if not stderr_value.find(b"is running with process") != -1:
                module.fail_json(msg=servername + " start failed", stdout=stdout_value, stderr=stderr_value)
-
+        
+        time.sleep(5)
+        
         module.exit_json(changed=True, msg=servername + " started successfully", stdout=stdout_value)
 
 
