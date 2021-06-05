@@ -30,7 +30,7 @@ def main():
     #    module.fail_json(msg=libertydir+" does not exists")
 
     if state == 'stopped':
-        child = subprocess.Popen([libertydir+"/bin/server stop" + servername], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        child = subprocess.Popen([libertydir+"/bin/server stop " + servername], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout_value, stderr_value = child.communicate()
         if child.returncode != 0:
            if not stderr_value.find(b"is not running") != -1:
