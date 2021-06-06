@@ -59,7 +59,7 @@ def main():
         
         #time.sleep(5)
         
-        module.exit_json(changed=True, msg=servername + " status successfully", stdout=stdout_value)
+        module.exit_json(changed=False, msg=servername + " status successfully", stdout=stdout_value)
 
 
 # import module snippets
