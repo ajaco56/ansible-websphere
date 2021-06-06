@@ -53,9 +53,9 @@ def main():
     if state == 'status':
         child = subprocess.Popen([libertydir+"/bin/server status " + servername], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout_value, stderr_value = child.communicate()
-        if child.returncode != 0:
-           if stderr_value.find(b"is not running") != -1:
-               module.fail_json(msg=servername + " status failed", stdout=stdout_value, stderr=stderr_value)
+        #if child.returncode != 0:
+        #   if stderr_value.find(b"is not running") != -1:
+        #       module.fail_json(msg=servername + " status failed", stdout=stdout_value, stderr=stderr_value)
         
         #time.sleep(5)
         
