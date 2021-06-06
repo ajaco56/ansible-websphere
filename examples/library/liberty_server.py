@@ -27,18 +27,18 @@ def main():
     libertydir = module.params['libertydir']
 
     # Check if paths are valid
-    #if not os.path.exists(libertydir):
-    #    module.fail_json(msg=libertydir+" does not exists")
+    
+    if not os.path.exists(libertydir):
+        module.fail_json(msg=libertydir+" does not exists")
     
     # Check if server exists
-    
    
-    child = subprocess.Popen([libertydir+"/bin/server status " + servername], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    stdout_value, stderr_value = child.communicate()
+    #child = subprocess.Popen([libertydir+"/bin/server status " + servername], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    #stdout_value, stderr_value = child.communicate()
         #if child.returncode != 0:
-    if stdout_value.find(b"does not exist"):
-        module.fail_json(msg=servername + " status failed", stdout=stdout_value, stderr=stderr_value)
-    child = '':
+    #if stdout_value.find(b"does not exist"):
+    #    module.fail_json(msg=servername + " status failed", stdout=stdout_value, stderr=stderr_value)
+    #child = '':
 
     if state == 'stopped':
         child = subprocess.Popen([libertydir+"/bin/server stop " + servername], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
