@@ -15,9 +15,10 @@ def main():
     # Read arguments
     module = AnsibleModule(
         argument_spec = dict(
-            state = dict(default='started', choices=['started', 'stopped']),
+            state = dict(default='started', choices=['started', 'stopped', 'status']),
             servername = dict(required=True),
             libertydir = dict(required=True, type='path')
+            
         )
     )
 
@@ -48,6 +49,17 @@ def main():
         #time.sleep(5)
         
         module.exit_json(changed=True, msg=servername + " started successfully", stdout=stdout_value)
+        
+    if state == 'status':
+        child = subprocess.Popen([libertydir+"/bin/server status " + servername], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        stdout_value, stderr_value = child.communicate()
+        if child.returncode != 0:
+           if not stderr_value.find(b"is running with process") != -1:
+               module.fail_json(msg=servername + " status failed", stdout=stdout_value, stderr=stderr_value)
+        
+        #time.sleep(5)
+        
+        module.exit_json(changed=True, msg=servername + " status successfully", stdout=stdout_value)
 
 
 # import module snippets
