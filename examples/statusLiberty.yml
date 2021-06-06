@@ -1,0 +1,16 @@
+- hosts: all
+  #connection: local
+
+  tasks:
+    - name: Status
+      liberty_server:
+        state: status
+        libertydir: "{{ libertydir }}"
+        servername: "{{ servername }}"
+      #become: yes
+      #become_user: wasusr
+      #become_method: sudo 
+      register: rc
+
+    - debug:
+        msg: "{{ rc }}"
