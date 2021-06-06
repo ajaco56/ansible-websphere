@@ -28,8 +28,8 @@ def main():
 
     # Check if paths are valid
     
-    if not os.path.exists(libertydir):
-        module.fail_json(msg=libertydir+" does not exists")
+    #if not os.path.exists(libertydir):
+     #   module.fail_json(msg=libertydir+" does not exists")
     
     # Check if server exists
    
