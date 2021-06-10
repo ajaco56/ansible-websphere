@@ -8,7 +8,7 @@
         ihsdir: "{{ ihsdir }}"
         servername: "{{ servername }}"
       become: yes
-      become_user: ihsusr
+      become_user: wasusr
       become_method: sudo 
       register: rc
 
