@@ -1,0 +1,16 @@
+- hosts: all
+  #connection: local
+  
+  tasks:
+    - name: Start
+      liberty_server:
+        state: started
+        ihsdir: "{{ ihsdir }}"
+        servername: "{{ servername }}"
+      become: yes
+      become_user: ihsusr
+      become_method: sudo 
+      register: rc
+
+    - debug:
+        msg: "{{ rc }}"
