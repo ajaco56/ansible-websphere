@@ -3,7 +3,7 @@
   
   tasks:
     - name: Start
-      liberty_server:
+      ihs_ops:
         state: started
         ihsdir: "{{ ihsdir }}"
         servername: "{{ servername }}"
